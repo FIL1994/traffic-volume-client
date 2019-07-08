@@ -1,9 +1,11 @@
 import React from "react";
+import TrafficList from "./TrafficList";
 
 const App = props => (
-  <div>
+  <>
     <h1>Traffic Data</h1>
-  </div>
+    <TrafficList />
+  </>
 );
 
 export default App;
