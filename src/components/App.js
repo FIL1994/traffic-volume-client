@@ -1,9 +1,14 @@
 import React from "react";
+import TrafficList from "./TrafficList";
+import "./app.less";
 
 const App = props => (
-  <div>
-    <h1>Traffic Data</h1>
-  </div>
+  <>
+    <h1 style={{ textAlign: "center", textDecoration: "underline" }}>
+      Traffic Data
+    </h1>
+    <TrafficList />
+  </>
 );
 
 export default App;
