@@ -16,16 +16,16 @@ ul.traffic-list {
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
 
-    &:not(:last-child) {
-      &:first-child {
-        background: transparent;
-        box-shadow: none;
-        padding-bottom: 0px;
-        margin-bottom: 8px;
-        font-family: @headingFont;
-        font-weight: 500;
-      }
+    &:first-child {
+      background: transparent;
+      box-shadow: none;
+      padding-bottom: 0px;
+      margin-bottom: 8px;
+      font-family: @headingFont;
+      font-weight: 500;
+    }
 
+    &:not(:last-child) {
       margin-bottom: 10px;
     }
   }
