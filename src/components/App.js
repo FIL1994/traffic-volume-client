@@ -2,10 +2,10 @@ import React from "react";
 import TrafficList from "./TrafficList";
 import "./app.less";
 
-const App = props => (
+const App = () => (
   <>
     <h1 style={{ textAlign: "center", textDecoration: "underline" }}>
-      Traffic Data
+      Traffic Volume
     </h1>
     <TrafficList />
   </>

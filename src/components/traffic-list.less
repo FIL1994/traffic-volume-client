@@ -1,3 +1,5 @@
+@import "../styles/vars.less";
+
 ul.traffic-list {
   list-style: none;
   display: flex;
@@ -18,9 +20,10 @@ ul.traffic-list {
       &:first-child {
         background: transparent;
         box-shadow: none;
-        font-weight: bold;
         padding-bottom: 0px;
         margin-bottom: 8px;
+        font-family: @headingFont;
+        font-weight: 500;
       }
 
       margin-bottom: 10px;
