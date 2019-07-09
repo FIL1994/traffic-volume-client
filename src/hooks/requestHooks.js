@@ -3,6 +3,7 @@ import axios from "axios";
 
 export const useRequest = ({ query, variables = null }) => {
   const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
 
   useEffect(() => {
@@ -20,13 +21,15 @@ export const useRequest = ({ query, variables = null }) => {
         }
       )
       .then(res => {
+        setIsLoading(false);
         setData(res.data.data);
         setError(undefined);
       })
       .catch(error => {
+        setIsLoading(false);
         setError(error);
       });
   }, []);
 
-  return [data, error];
+  return [data, isLoading, error];
 };

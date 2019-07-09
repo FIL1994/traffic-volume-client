@@ -1,9 +1,12 @@
 import React from "react";
 import TrafficList from "./TrafficList";
+import "./app.less";
 
 const App = props => (
   <>
-    <h1>Traffic Data</h1>
+    <h1 style={{ textAlign: "center", textDecoration: "underline" }}>
+      Traffic Data
+    </h1>
     <TrafficList />
   </>
 );
