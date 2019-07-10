@@ -14,7 +14,7 @@ ul.traffic-list {
     background: white;
     padding: 15px 20px;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-    border-radius: 5px;
+    border-radius: @borderRadius;
 
     &:first-child {
       background: transparent;
@@ -23,6 +23,10 @@ ul.traffic-list {
       margin-bottom: 8px;
       font-family: @headingFont;
       font-weight: 500;
+    }
+
+    &:not(:first-child) {
+      cursor: pointer;
     }
 
     &:not(:last-child) {

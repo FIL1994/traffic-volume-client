@@ -1,0 +1,38 @@
+@import "../styles/vars.less";
+
+.traffic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 15px;
+}
+
+.travel-patterns > span {
+  @travelPatternBorder: 1px solid black;
+
+  display: inline-block;
+  padding: 5px;
+  border: @travelPatternBorder;
+  border-left: none;
+  width: 30px;
+  text-align: center;
+
+  &:first-child {
+    border-radius: @borderRadius 0 0 @borderRadius;
+    border-left: @travelPatternBorder;
+  }
+  &:last-child {
+    border-radius: 0 @borderRadius @borderRadius 0;
+  }
+
+  &.selected {
+    background: black;
+    color: white;
+  }
+  &:not(.selected) {
+    cursor: pointer;
+    &:hover {
+      background: black;
+      color: white;
+    }
+  }
+}

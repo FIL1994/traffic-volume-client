@@ -21,13 +21,17 @@ export const useRequest = ({ query, variables = null }) => {
         }
       )
       .then(res => {
-        setIsLoading(false);
+        if (Array.isArray(res.data.errors)) {
+          throw new Error(res.data.errors);
+        }
+
         setData(res.data.data);
         setError(undefined);
+        setIsLoading(false);
       })
       .catch(error => {
-        setIsLoading(false);
         setError(error);
+        setIsLoading(false);
       });
   }, []);
 
