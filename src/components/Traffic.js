@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { AgGridReact } from "ag-grid-react";
 import { useRequest } from "../hooks/requestHooks";
+import "ag-grid-community/dist/styles/ag-grid.css";
+import "ag-grid-community/dist/styles/ag-theme-balham.css";
 import "./traffic.less";
 
 const Traffic = props => {
@@ -47,8 +50,6 @@ const Traffic = props => {
       ? traffic.travelPatterns.find(t => t.pattern === pattern).years
       : [];
 
-  console.log(years);
-
   if (isLoading) return <div>Loading...</div>;
   return (
     <>
@@ -77,7 +78,57 @@ const Traffic = props => {
             </span>
           ))}
         </div>
-
+        <div
+          className="ag-theme-balham"
+          style={{
+            marginTop: 15
+          }}
+        >
+          <AgGridReact
+            onGridReady={({ api }) => {
+              api.sizeColumnsToFit();
+            }}
+            domLayout="autoHeight"
+            columnDefs={[
+              {
+                headerName: "Year",
+                field: "year",
+                minWidth: 55,
+                maxWidth: 70
+              },
+              {
+                headerName: "AADT (Annual Average Daily Traffic)",
+                field: "aadt"
+              },
+              {
+                headerName: "SADT (Summer Average Daily Traffic)",
+                field: "sadt"
+              },
+              {
+                headerName: "SAWDT (Summer Average Weekday Traffic)",
+                field: "sawdt"
+              },
+              {
+                headerName: "WADT (Winter Average Daily Traffic)",
+                field: "wadt"
+              },
+              {
+                headerName: "DHV (Design Hourly Volume)",
+                field: "dhv"
+              },
+              {
+                headerName: "Directional Split",
+                field: "directionalSplit"
+              }
+            ]}
+            rowData={years}
+            defaultColDef={{
+              sortable: true,
+              filter: true,
+              resizable: true
+            }}
+          />
+        </div>
       </div>
     </>
   );
