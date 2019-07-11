@@ -15,6 +15,7 @@
   border-left: none;
   width: 30px;
   text-align: center;
+  transition: background 0.3s ease;
 
   &:first-child {
     border-top-left-radius: @borderRadius;
@@ -32,9 +33,15 @@
   }
   &:not(.selected) {
     cursor: pointer;
-    &:hover {
-      background: black;
+    &:hover,
+    &:active {
       color: white;
+    }
+    &:hover {
+      background: fadeout(black, 30%);
+    }
+    &:active {
+      background: fadeout(black, 20%);
     }
   }
 }

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRequest } from "../hooks/requestHooks";
 import "./traffic.less";
 
 const Traffic = props => {
+  const [pattern, setPattern] = useState();
   const { id } = props.match.params;
   const [{ traffic = {} }, isLoading, error] = useRequest({
     query: `
@@ -31,10 +32,24 @@ const Traffic = props => {
           }
         `
   });
-  console.log("Data", traffic, id, isLoading);
+
+  useEffect(
+    function setInitialPattern() {
+      if (traffic.travelPatterns) {
+        setPattern(traffic.travelPatterns[0].pattern);
+      }
+    },
+    [traffic]
+  );
+
+  const years =
+    traffic.travelPatterns && pattern
+      ? traffic.travelPatterns.find(t => t.pattern === pattern).years
+      : [];
+
+  console.log(years);
 
   if (isLoading) return <div>Loading...</div>;
-
   return (
     <>
       <h3>
@@ -53,9 +68,16 @@ const Traffic = props => {
       <div>
         <div className="travel-patterns">
           {traffic.travelPatterns.map(t => (
-            <span key={t.pattern}>{t.pattern}</span>
+            <span
+              key={t.pattern}
+              className={`${t.pattern === pattern ? "selected" : ""}`}
+              onClick={() => setPattern(t.pattern)}
+            >
+              {t.pattern}
+            </span>
           ))}
         </div>
+
       </div>
     </>
   );
