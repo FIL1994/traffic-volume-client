@@ -6,7 +6,7 @@ const TrafficList = props => {
   const [{ traffics = [] }, isLoading, error] = useRequest({
     query: `
       {
-        traffics(page: 1, pageSize: 15) {
+        traffics(page: 1, pageSize: 20) {
           id,
           lhrs,
           hwyType,

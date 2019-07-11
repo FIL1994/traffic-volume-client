@@ -124,7 +124,6 @@ const Traffic = props => {
             rowData={years}
             defaultColDef={{
               sortable: true,
-              filter: true,
               resizable: true
             }}
           />
