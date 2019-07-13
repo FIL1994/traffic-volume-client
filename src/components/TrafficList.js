@@ -12,7 +12,7 @@ const TrafficList = props => {
           hwyType,
           hwyNumber,
           locationDesc,
-          secondaryDesc 
+          avgAadt 
         }
       }
     `
@@ -22,8 +22,11 @@ const TrafficList = props => {
     <>
       <ul className="traffic-list">
         <li>
+          <span title="Linear Highway Referencing System">LHRS</span>
           <span>Hwy #</span>
+          <span>Hwy Type</span>
           <span>Description</span>
+          <span title="Average Annual Average Daily Traffic">Avg. AADT</span>
         </li>
         {traffics.map(t => (
           <li
@@ -32,8 +35,11 @@ const TrafficList = props => {
               props.history.push(t.id);
             }}
           >
+            <span>{t.lhrs}</span>
             <span>{t.hwyNumber}</span>
+            <span>{t.hwyType}</span>
             <span>{t.locationDesc}</span>
+            <span>{t.avgAadt}</span>
           </li>
         ))}
       </ul>
