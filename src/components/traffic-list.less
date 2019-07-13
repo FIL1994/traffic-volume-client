@@ -11,8 +11,8 @@ ul.traffic-list {
   li {
     display: grid;
     grid-template-columns:
-      60px 65px 85px 320px
-      90px 1fr;
+      60px 65px 88px 320px
+      95px 1fr;
     grid-gap: 8px;
 
     background: #fff;
@@ -48,18 +48,14 @@ ul.traffic-list {
           content: "";
           width: 0;
           height: 0;
-          border-left: 5px solid transparent;
-          border-right: 5px solid transparent;
-          border-bottom: 5px solid @headingColor;
-
-          margin-top: 4px;
-          margin-left: 3px;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-bottom: 8px solid @headingColor;
           transition: transform 0.3s ease;
-
+          margin-top: 3px;
           position: absolute;
-          right: 3px;
+          right: 2px;
         }
-
         &[aria-sort="descending"]::after {
           transform: scaleY(-1);
         }
