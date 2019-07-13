@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const useRequest = ({ query, variables = null }) => {
+export const useRequest = ({ query, variables = null }, deps = []) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
@@ -33,7 +33,7 @@ export const useRequest = ({ query, variables = null }) => {
         setError(error);
         setIsLoading(false);
       });
-  }, []);
+  }, deps);
 
   return [data, isLoading, error];
 };

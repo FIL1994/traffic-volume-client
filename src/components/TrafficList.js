@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRequest } from "../hooks/requestHooks";
 import "./traffic-list.less";
 import Title from "./Title";
 
 const TrafficList = props => {
-  const [{ traffics = [] }, isLoading, error] = useRequest({
-    query: `
+  const [sortBy, setSortBy] = useState("LHRS");
+  const [sortAsc, setSortAsc] = useState(true);
+
+  useEffect(() => {
+    setSortAsc(true);
+  }, [sortBy]);
+
+  const [{ traffics = [] }, isLoading, error] = useRequest(
+    {
+      query: `
       {
-        traffics(page: 1, pageSize: 20) {
+        traffics(page: 1, pageSize: 20, sortBy: ${sortBy ||
+          null}, sortAsc: ${sortAsc}) {
           id,
           lhrs,
           hwyType,
@@ -17,18 +26,41 @@ const TrafficList = props => {
         }
       }
     `
-  });
+    },
+    [sortBy, sortAsc]
+  );
+
+  function getHeadingProps(heading) {
+    return {
+      role: "columnheader",
+      tabIndex: 0,
+      onClick: () => {
+        setSortBy(heading);
+        setSortAsc(sortOrder => !sortOrder);
+      }
+    };
+  }
 
   return (
     <>
       <Title>Traffic Volume</Title>
       <ul className="traffic-list">
         <li>
-          <span title="Linear Highway Referencing System">LHRS</span>
-          <span>Hwy #</span>
-          <span>Hwy Type</span>
-          <span>Description</span>
-          <span title="Average Annual Average Daily Traffic">Avg. AADT</span>
+          <span
+            {...getHeadingProps("LHRS")}
+            title="Linear Highway Referencing System"
+          >
+            LHRS
+          </span>
+          <span {...getHeadingProps("HWY_NUMBER")}>Hwy #</span>
+          <span {...getHeadingProps("HWY_TYPE")}>Hwy Type</span>
+          <span {...getHeadingProps("LOCATION_DESC")}>Description</span>
+          <span
+            {...getHeadingProps("AVG_AADT")}
+            title="Average Annual Average Daily Traffic"
+          >
+            Avg. AADT
+          </span>
         </li>
         {traffics.map(t => (
           <li
