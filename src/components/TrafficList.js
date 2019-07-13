@@ -37,7 +37,12 @@ const TrafficList = props => {
       onClick: () => {
         setSortBy(heading);
         setSortAsc(sortOrder => !sortOrder);
-      }
+      },
+      ...(heading === sortBy
+        ? {
+            "aria-sort": sortAsc ? "ascending" : "descending"
+          }
+        : { "aria-sort": "none" })
     };
   }
 
