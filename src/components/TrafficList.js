@@ -1,6 +1,7 @@
 import React from "react";
 import { useRequest } from "../hooks/requestHooks";
 import "./traffic-list.less";
+import Title from "./Title";
 
 const TrafficList = props => {
   const [{ traffics = [] }, isLoading, error] = useRequest({
@@ -20,6 +21,7 @@ const TrafficList = props => {
 
   return (
     <>
+      <Title>Traffic Volume</Title>
       <ul className="traffic-list">
         <li>
           <span title="Linear Highway Referencing System">LHRS</span>

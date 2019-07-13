@@ -4,6 +4,7 @@ import { useRequest } from "../hooks/requestHooks";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
 import "./traffic.less";
+import Title from "./Title";
 
 const Traffic = props => {
   const [pattern, setPattern] = useState();
@@ -53,11 +54,12 @@ const Traffic = props => {
   if (isLoading) return <div>Loading...</div>;
   return (
     <>
-      <h3>
-        {traffic.hwyNumber} - {traffic.locationDesc}
-        <br />
-        {traffic.secondaryDesc}
-      </h3>
+      <Title>
+        {traffic.locationDesc}
+        {traffic.secondaryDesc && (
+          <div className="secondary">{traffic.secondaryDesc}</div>
+        )}
+      </Title>
       <div className="traffic-grid">
         <div>
           <div>LHRS: {traffic.lhrs}</div>

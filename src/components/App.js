@@ -6,13 +6,13 @@ import Traffic from "./Traffic";
 
 const App = () => (
   <>
-    <h1 style={{ textAlign: "center", textDecoration: "underline" }}>
-      Traffic Volume
-    </h1>
-    <Router>
-      <Route exact path="/" component={TrafficList} />
-      <Route path="/:id" component={Traffic} />
-    </Router>
+    <h1 />
+    <main>
+      <Router>
+        <Route exact path="/" component={TrafficList} />
+        <Route path="/:id" component={Traffic} />
+      </Router>
+    </main>
   </>
 );
 
