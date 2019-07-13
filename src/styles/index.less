@@ -16,7 +16,7 @@ body {
 }
 
 main {
-  background: #fafafa;
+  background: @background;
   border-radius: 4px;
   padding: 15px 30px;
   min-height: 93vh;
@@ -50,8 +50,13 @@ h5 {
   font-size: 1.25rem;
 }
 
-.ag-theme-balham .ag-header {
+#root .ag-header {
   font-family: @headingFont;
   font-feature-settings: "lnum" 1;
   -webkit-text-stroke: 0.1px;
+}
+
+.ag-theme-material,
+.ag-theme-material .ag-header {
+  background-color: @background;
 }

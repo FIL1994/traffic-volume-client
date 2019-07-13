@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AgGridReact } from "ag-grid-react";
 import { useRequest } from "../hooks/requestHooks";
 import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-balham.css";
+import "ag-grid-community/dist/styles/ag-theme-material.css";
 import "./traffic.less";
 import Title from "./Title";
 
@@ -81,7 +81,7 @@ const Traffic = props => {
           ))}
         </div>
         <div
-          className="ag-theme-balham"
+          className="ag-theme-material"
           style={{
             marginTop: 15
           }}
@@ -95,8 +95,8 @@ const Traffic = props => {
               {
                 headerName: "Year",
                 field: "year",
-                minWidth: 55,
-                maxWidth: 70
+                minWidth: 60,
+                maxWidth: 78
               },
               {
                 headerName: "AADT (Annual Average Daily Traffic)",
