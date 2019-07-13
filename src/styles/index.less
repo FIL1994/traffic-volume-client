@@ -10,7 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0 8px;
   padding: 0px;
-  background: #333;
+  background: @headerColor;
   font-size: 1.5rem;
   font-weight: 300;
 }
@@ -51,9 +51,7 @@ h5 {
 }
 
 #root .ag-header {
-  font-family: @headingFont;
-  font-feature-settings: "lnum" 1;
-  -webkit-text-stroke: 0.1px;
+  .header-font-mixin();
 }
 
 .ag-theme-material,
