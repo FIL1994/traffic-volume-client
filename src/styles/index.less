@@ -10,8 +10,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 15px 50px;
   padding: 0px;
-  background: #f1f0f0;
+  background: #fafafa;
   font-size: 1.5rem;
+  font-weight: 300;
 }
 
 h1,
@@ -22,6 +23,9 @@ h5,
 h6 {
   font-family: @headingFont;
   letter-spacing: 0.004rem;
+  -webkit-font-feature-settings: "lnum" 1;
+  font-feature-settings: "lnum" 1;
+  -webkit-text-stroke: 0.1px;
 }
 h1 {
   font-size: 2.25rem;
@@ -37,4 +41,10 @@ h4 {
 }
 h5 {
   font-size: 1.25rem;
+}
+
+.ag-theme-balham .ag-header {
+  font-family: @headingFont;
+  font-feature-settings: "lnum" 1;
+  -webkit-text-stroke: 0.1px;
 }
