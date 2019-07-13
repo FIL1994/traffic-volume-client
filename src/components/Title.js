@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 
 const Title = ({ children }) => {
   const forceUpdate = useState()[1];
-  const container = document.querySelector("#root > h1");
+  const container = document.querySelector("header > h1");
 
   useLayoutEffect(() => {
     if (!container) forceUpdate(val => !val);

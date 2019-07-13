@@ -6,7 +6,9 @@ import Traffic from "./Traffic";
 
 const App = () => (
   <>
-    <h1 />
+    <header>
+      <h1 />
+    </header>
     <main>
       <Router>
         <Route exact path="/" component={TrafficList} />
