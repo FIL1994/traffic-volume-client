@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useRequest } from "../hooks/requestHooks";
 import "./traffic-list.less";
 import Title from "./Title";
@@ -68,17 +69,13 @@ const TrafficList = props => {
           </span>
         </li>
         {traffics.map(t => (
-          <li
-            key={t.id}
-            onClick={() => {
-              props.history.push(t.id);
-            }}
-          >
+          <li key={t.id}>
             <span>{t.lhrs}</span>
             <span>{t.hwyNumber}</span>
             <span>{t.hwyType}</span>
             <span>{t.locationDesc}</span>
-            <span>{t.avgAadt}</span>
+            <span>{t.avgAadt.toLocaleString()}</span>
+            <Link to={t.id} />
           </li>
         ))}
       </ul>

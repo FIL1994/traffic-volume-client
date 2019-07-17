@@ -9,6 +9,7 @@ ul.traffic-list {
   margin-top: 8px;
 
   li {
+    position: relative;
     display: grid;
     grid-template-columns:
       60px 65px 88px 320px
@@ -25,8 +26,14 @@ ul.traffic-list {
       display: inline-flex;
     }
 
+    > a {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+
     &:first-child {
-      background: transparent;
+      background: @background;
       box-shadow: none;
       padding-bottom: 0px;
       margin-bottom: 8px;
@@ -34,6 +41,26 @@ ul.traffic-list {
       border-radius: 0;
       padding-bottom: 2px;
       border-bottom: 1px solid #00000040;
+      box-shadow: none;
+      position: sticky;
+      z-index: 1;
+      top: 0;
+
+      > * {
+        z-index: 2;
+      }
+
+      // hide box-shadow
+      &::after {
+        content: "";
+        display: inline-block;
+        background: @background;
+        position: absolute;
+        height: 100%;
+        width: calc(100% + 10px);
+        right: -5px;
+        z-index: 1;
+      }
 
       > [role="columnheader"] {
         cursor: pointer;
@@ -64,6 +91,7 @@ ul.traffic-list {
 
     &:not(:first-child) {
       cursor: pointer;
+      text-transform: lowercase;
 
       &:hover {
         box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.13);
