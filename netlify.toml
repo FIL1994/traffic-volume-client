@@ -1,3 +1,3 @@
 [build.environment]
-    NODE_VERSION = "10.x"
+    NODE_VERSION = "10"
     HOST_URL = "http://52.14.119.107"
