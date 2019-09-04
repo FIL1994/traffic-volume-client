@@ -6,7 +6,7 @@
   "description": "",
   "scripts": {
     "start": "webpack-dev-server --mode=development --port=3000 --progress",
-    "build": "cross-env NODE_ENV=production webpack --mode=production -p --progress"
+    "build": "cross-env node scripts/create-env.js && NODE_ENV=production webpack --mode=production -p --progress"
   },
   "license": "MIT",
   "devDependencies": {
