@@ -9,7 +9,7 @@ const Dotenv = require("dotenv-webpack");
 const isProduction = String(process.env.NODE_ENV).includes("production");
 
 module.exports = {
-  entry: ["@babel/polyfill", "./src/index.js"],
+  entry: ["@babel/polyfill", "./src/index.tsx"],
   ...(!isProduction
     ? {
         output: {
@@ -24,7 +24,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
