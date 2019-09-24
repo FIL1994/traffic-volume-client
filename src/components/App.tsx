@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import TrafficList from "./TrafficList";
 import "./app.less";
 import Traffic from "./Traffic";
