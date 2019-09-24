@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo, useLayoutEffect } from "react";
 
 export default function useIntersectionObserver(options) {
   const ref = useRef();

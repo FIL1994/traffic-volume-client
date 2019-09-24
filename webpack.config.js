@@ -64,5 +64,8 @@ module.exports = {
       chunkFilename: "[id].css"
     }),
     new Dotenv()
-  ]
+  ],
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".json"]
+  }
 };
